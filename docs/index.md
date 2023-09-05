@@ -1,2 +1,2 @@
-Term NSI
-![Japon](docs/Japon.png)
+Term NSI<br>
+![Japon](docs/Japon.jpg)
