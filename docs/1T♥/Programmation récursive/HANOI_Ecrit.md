@@ -19,7 +19,7 @@ def sommet(pile) :
     else :
         sommet_valeur = depiler(pile)
         empiler(pile, sommet_valeur)
-    return sommet-valeur
+    return sommet_valeur
 
 
 
