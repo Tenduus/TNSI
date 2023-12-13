@@ -39,3 +39,18 @@ def creation_tours(n):
     la première correspond à la pile des n disques,
     les autres étant vides.'''
     return [ mettre_disques(creer_pile(), n), creer_pile(), creer_pile()]
+
+def deplacer(tours, origine, cible): 
+    if not est_vide(tours[origine]):
+        if est_vide(tours[cible]) or sommet(tours[origine]) < sommet(tours[cible]):
+            empiler(tours[cible], depiler(tours[origine]))
+    else : 
+        pass
+
+def resoudre(tours, n, origine, cible, interm):
+    if n == 1:
+        deplacer(tours, origine, cible) 
+    else : 
+        resoudre(tours, n - 1, origine, interm, cible) 
+        deplacer(tours, origine, cible)  
+        resoudre(tours, n - 1, interm, cible, origine)
