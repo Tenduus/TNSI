@@ -7,14 +7,14 @@
 ### Créer des tables :
 
 ```sql
-CREATE TABLE nom_de_la_table (id INTEGER PRIMARY KEY, nom TEXT, nom INTEGER);
+CREATE TABLE table1 (id INTEGER PRIMARY KEY, nom TEXT, nom INTEGER);
 ```
 
 
 ### Insérer des données :
 
 ```sql
-INSERT INTO nom_de_la_table VALUES (73, "exemple", 33);`
+INSERT INTO table1 VALUES (73, "exemple", 33);
 ```
 
 ### Interroger les données :
@@ -22,33 +22,53 @@ INSERT INTO nom_de_la_table VALUES (73, "exemple", 33);`
 #### Sélection :
 
 - ```sql
-    SELECT * FROM nom_de_la_table;
+    SELECT * FROM table1;
     ``` 
     Permet de tout sélectionner 
 
 - ```sql
-    SELECT * FROM nom_de_la_table nom > 20;
+    SELECT * FROM table1 nom > 20;
     ```
     Filtrer avec condition
 
 - ```sql
-    SELECT * FROM nom_de_la_table nom > 20 AND nom ="exemple";
+    SELECT * FROM table1 nom > 20 AND nom ="exemple";
     ```
     Filtrer avec condition multiple
 
 #### Trier les données :
 
 - ```sql
-    SELECT * FROM nom_de_la_table WHERE nom > 21 ORDER BY age DESC;
+    SELECT * FROM table1 WHERE nom > 21 ORDER BY age DESC;
     ``` 
     Permet de trier les données par orde croissant **`ASC`** et décroissant **`DESC`**
 
 ### Agréger les données :
 
 - ```sql
-    SELECT MAX(nom) FROM nom_de_la_table;
+    SELECT MAX(nom) FROM table1;
     ```
     Fonction d'agrégation avec les instructions :
     1. `MAX()` pour récupérer la valeur maximum d’une colonne sur un ensemble de ligne.
     2. `MIN()` pour récupérer la valeur minimum d'une colonne sur un ensemble de ligne.
     3. `SUM()` pour calculer la somme sur un ensemble d’enregistrement
+
+### Les jointures : 
+
+- ```sql
+    SELECT * FROM table1 INNER JOIN table2 ON table1.id_test = table2.id
+    ```
+    L'instructions **``INNER JOIN``** permet de créer une jointure entre la **table1** et la **table2**. Ensuite, les instructions **``ON table1.id_test = table2.id``** signifie qu'une ligne quelconque A de la **table1** devra être fusionnée avec la ligne B de la **table2** à condition que l'attribut **id_test** de la ligne A soit égal à l'attribut id de la ligne B.
+
+### Modifications de données :
+
+- ```sql
+    UPDATE table1 SET nom_colonne = 'nouvelle valeur';
+    ```
+    Cette instruction permet de modifier des données déjà existante. Il bien entendu possible d'ajouter des conditions à celle-ci.
+
+### Requêtes de suppression : 
+    
+- ```sql 
+    DELETE FROM table1 WHERE nom='exemple'
+    ```
