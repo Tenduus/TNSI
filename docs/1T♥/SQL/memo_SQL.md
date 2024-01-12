@@ -2,7 +2,13 @@
 
 ### Notes :
  - Par convention il faut écrire les instructions en **majuscule**
- - Ne pas oublier le `;` à la fin d'une ligne d'instruction
+ - Ne pas oublier le **`;`** à la fin d'une ligne d'instruction
+ 
+ ### Vocabulaire : 
+ 
+ - Dans une table, chaque ligne est appelée **tuple** ou enregistrement et chaque colonne est appelée **attribut** ou variable.
+ - Tout attribut à un domaine de valeurs, telle qu'une chaîne de caractère, un nombre ou bien un booléen.
+ - Une **Clé Primaire** permet d'identifier chaque ligne de la table de manière unique. Cela permettra de faire des liens entre lignes de plusieurs tables sans ambiguïté.
 
 ### Créer des tables :
 
@@ -72,3 +78,36 @@ INSERT INTO table1 VALUES (73, "exemple", 33);
 - ```sql 
     DELETE FROM table1 WHERE nom='exemple'
     ```
+
+### Les domaines de valeurs : 
+
+- ```sql
+    CREATE TABLE table1 (nom VARCHAR(50), prenom CHAR(30));
+    ```
+    **`VARCHAR(n)`** / **`CHAR(n)`**: Chaîne de caractères de longueur variable (VARCHAR) ou fixe (CHAR) avec une longueur maximale spécifiée (n).
+
+-  ```sql 
+    CREATE TABLE table1 (age INT);
+    ```
+    **`INT`** / **`INTEGER`**: Nombre entier.
+
+- ```sql 
+    CREATE TABLE table1  (prix DECIMAL(10, 2));
+    ```
+    **`FLOAT`** / **`DOUBLE`** / **`DECIMAL`**: Nombres à virgule ou décimaux.
+
+    **Précision :** 
+
+ Le type **`FLOAT`** utilise 32 bits pour représenter les nombres à virgule flottante, offrant une précision d'environ 7 chiffres décimaux.
+        
+ Le type **`DOUBLE`** utilise 64 bits, offrant une précision plus élevée d'environ 15 chiffres décimaux.
+
+- ```sql 
+    CREATE TABLE table1 (est_actif BOOLEAN);
+    ```
+    **`BOOLEAN`** / **`BIT`**: Pour stocker des valeurs de vérité (VRAI ou FAUX).
+
+- ```sql
+    CREATE TABLE table1 (genre ENUM('Homme', 'Femme', 'Autre'));
+    ```
+    **`ENUM`**: Énumération, pour définir une liste de valeurs possibles.
