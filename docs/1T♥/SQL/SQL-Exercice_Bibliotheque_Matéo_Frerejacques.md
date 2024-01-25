@@ -43,3 +43,12 @@ SELECT * FROM Abonne Nom AND Prenom AND CodePostal='64%';
 ```sql 
 SELECT * FROM Emprunt WHERE DateRetourReel > DateRetourPrevu AND Abonne_ID;
 ``` 
+
+#### d. 
+
+```sql
+SELECT * FROM Nom INNER JOIN Emprunt ON Abonne_ID = Emprunt.Abonne_ID AND DateRetourPrevu < DateRetourReel
+```
+
+#### e. 
+
