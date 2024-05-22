@@ -10,4 +10,10 @@ def binaire(a):
     return bin_a
 
 
+def nb_repetitions(elt, tab):
 
+    compteur = 0
+    for element in tab:
+        if element == elt:
+            compteur += 1
+    return compteur

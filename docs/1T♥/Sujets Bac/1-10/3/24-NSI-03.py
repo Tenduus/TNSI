@@ -1,3 +1,4 @@
+#Ex2
 class Pile:
     """Classe définissant une structure de pile."""
     def __init__(self):
@@ -19,18 +20,28 @@ class Pile:
         assert not self.est_vide()
         return self.contenu.pop()
 
+
 def bon_parenthesage(ch):
     """Renvoie un booléen indiquant si la chaîne ch 
     est bien parenthésée"""
     p = Pile()
     for c in ch:
-        if c == ...: 
+        if c == "(": 
             p.empiler(c)
-        elif c == ...: 
+        elif c == ")": 
             if p.est_vide():
-                ...
+                return False
             else:
-                ...
-    return ... 
+                p.depiler()
+    return p.est_vide()
 
-
+# Ex 1
+def maximu_tableau(tab):
+    
+    max_value = tab[0]
+    
+    for item in tab[1:]:
+        if item > max_value:
+            max_value = item
+    
+    return max_value
