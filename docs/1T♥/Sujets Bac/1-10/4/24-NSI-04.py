@@ -7,11 +7,11 @@ def point_le_plus_proche(depart, tab):
     """ Renvoie les coordonnées du premier point du tableau tab se 
     trouvant à la plus courte distance du point depart."""
     min_point = tab[0]
-    min_dist = tab[0] 
+    min_dist = distance_carre(depart, min_point)
     for i in range(1, len(tab)):
-        if distance_carre(tab[i], depart) < : 
-            min_point = ... 
-            min_dist = ... 
+        if distance_carre(tab[i], depart) < min_dist: 
+            min_point = tab[i]
+            min_dist = distance_carre(tab[i], depart)
     return min_point
 
 def recherche(tab, n):
