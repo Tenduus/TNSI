@@ -1,27 +1,36 @@
 def depouille(urne):
     '''prend en paramètre une liste de suffrages et renvoie un 
     dictionnaire avec le nombre de voix pour chaque candidat'''
-    resultat = ... 
+    resultat = {}
     for bulletin in urne:
-        if ...: 
-            resultat[bulletin] = resultat[bulletin] + 1
+        if bulletin in resultat:
+            resultat[bulletin] += 1
         else:
-            ...
+            resultat[bulletin] = 1
     return resultat
+
+
 
 def vainqueurs(election):
     '''prend en paramètre un dictionnaire non vide avec le nombre de voix
     pour chaque candidat et renvoie la liste des vainqueurs'''
     nmax = 0
     for candidat in election:
-        if ... > ... : 
-            nmax = ... 
-    liste_finale = [ nom for nom in election if ... ] 
-    return ... 
+        if election[candidat] > nmax:
+            nmax = election[candidat]
+    liste_finale = [nom for nom in election if election[nom] == nmax]
+    return liste_finale
 
 
--Mémorisation des résultats intermédiaires : Le dictionnaire delannoy_mem est utilisé pour stocker les résultats des appels récursifs déjà calculés.
--Condition de base : Si n ou m est nul (n == 0 ou m == 0), il n'y a qu'un seul chemin possible (en ligne droite), donc le résultat est 1.
--Cas général : Si ni n ni m ne sont nuls, le nombre de chemins allant de (0, 0) à (n, m) est la somme des chemins provenant de (n-1, m), (n, m-1) et (n-1, m-1).
--Mémorisation du résultat : Le résultat est mémorisé dans delannoy_mem pour éviter des calculs redondants futurs.
--Retour du résultat mémorisé : La fonction retourne le résultat mémorisé.
+
+def verifie(tableau):
+    # Un tableau vide ou contenant un seul élément est considéré comme trié
+    if len(tableau) <= 1:
+        return True
+    
+    # Vérifier que chaque élément est inférieur ou égal au suivant
+    for i in range(len(tableau) - 1):
+        if tableau[i] > tableau[i + 1]:
+            return False
+    
+    return True
